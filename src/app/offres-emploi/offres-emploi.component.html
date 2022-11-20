@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="input-group">
+    <button type="button" class="btn btn-warning" (click)="Bilan()"> bilan </button>{{nbr}}
+      <div class="form-outline">
+        <input name="search" [(ngModel)]="searchText" id="search-focus" type="search" class="form-control" />
+      </div>
+      <button (click)="Search()" type="button" class="btn btn-primary">
+        Search
+      </button>
+    </div>
+    <div class="row">
+        <div class="col-md-4"  *ngFor="let p of listeEmploi">
+        <br>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">reference:{{ p.reference }}</h5>
+                  <p class="card-text">titre: {{p.titre}}</p>
+                  <p class="card-text">entreprise: {{p.entreprise}}</p>
+                  <p class="card-text">etat: {{p.etat}}</p>
+                  <button type="button" class="btn btn-success" [disabled]="p.etat==false">
+                    postuler
+                  </button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
