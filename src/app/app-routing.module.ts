@@ -6,7 +6,7 @@ import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 
 const routes: Routes = [
     {path:'product', component:ProductComponent},
-    {path:'',redirectTo:'products', pathMatch:'full'},
+    {path:'',redirectTo:'product', pathMatch:'full'},
     {path: 'emploie', component:OffresEmploiComponent},
     {path:'**',component:NotFoundComponentComponent}
 ];
