@@ -1,0 +1,39 @@
+<form #f="ngForm" (ngSubmit)="ajouter()">
+    <div class="form-group">
+        <label for="exampleInput1">Title</label>
+        <input type="text" name="title" class="form-control" id="exampleInput1" placeholder="Enter title" #title="ngModel" [(ngModel)]="product.title" required minlength="3">
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+        <div *ngIf="title.errors?.['required']">title is required</div>
+        <div *ngIf="title.errors?.['minlength']">title must have at least 3 character</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="pricelabel">price</label>
+        <input type="number" name="price" class="form-control" id="pricelabel" placeholder="Enter price" [(ngModel)]="product.price" #price="ngModel" required min="1">
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+            <div *ngIf="price.errors?.['required']">price is required</div>
+            <div *ngIf="price.errors?.['min']">price must be greater than 1</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="quantitylabel">Quantity</label>
+        <input type="number" name="quantity" class="form-control" id="quantitylabel" placeholder="Enter quantity" [(ngModel)]="product.quantity" #quantity="ngModel" required min="0">
+        <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+            <div *ngIf="quantity.errors?.['required']">quantity is required</div>
+            <div *ngIf="quantity.errors?.['min']">quantity must be greater than 0</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="picturelabel">picture</label>
+        <input type="text" name="picture" class="form-control" id="picturelabel" placeholder="Enter picture"[(ngModel)]="product.picture">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid" >Save</button>
+</form>
+
+<h6>New product</h6>
+<h6>title:</h6>{{product.title}}
+<h6>Price:</h6>{{product.price}}
+<h6>Quantity:</h6>{{product.quantity}}
+<h6>Picture:</h6>{{product.picture}}
